@@ -27,7 +27,7 @@ public class BallManager : MonoBehaviour
 			yield return new WaitForSeconds(TimeForNewSpawn);
 			GameObject NewBall = Instantiate(BallPrefab.gameObject, (Floor.transform.position + Ceiling.transform.position) / 2, Quaternion.identity);
 			NewBall.transform.parent = Parent.transform;
-			Vector3 BallVelocity = new Vector3(Power, 0, Power);
+			Vector3 BallVelocity = new Vector3(Power / Random.Range(1,4), 0, Power*Random.Range(1,4));
 			Vector3 BallForceVector = Floor.transform.rotation * BallVelocity;
 			NewBall.GetComponent<Rigidbody>().AddForce(BallForceVector, ForceMode.Impulse);
 			NewBall.name = "Ball " + (i + 1).ToString();
