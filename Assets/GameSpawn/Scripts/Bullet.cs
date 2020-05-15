@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+	public float AliveTime = 3;
+
+	private void Awake()
+	{
+		Destroy(gameObject, AliveTime);
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Ball")
